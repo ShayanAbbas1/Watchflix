@@ -1,0 +1,9 @@
+C:\Users\user\source\repos\watchflix\middlelayer\bin\Debug\middlelayer.dll
+C:\Users\user\source\repos\watchflix\middlelayer\bin\Debug\middlelayer.pdb
+C:\Users\user\source\repos\watchflix\middlelayer\bin\Debug\DataAccessLayer.dll
+C:\Users\user\source\repos\watchflix\middlelayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\user\source\repos\watchflix\middlelayer\obj\Debug\middlelayer.csprojAssemblyReference.cache
+C:\Users\user\source\repos\watchflix\middlelayer\obj\Debug\middlelayer.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\watchflix\middlelayer\obj\Debug\middlelayer.csproj.CopyComplete
+C:\Users\user\source\repos\watchflix\middlelayer\obj\Debug\middlelayer.dll
+C:\Users\user\source\repos\watchflix\middlelayer\obj\Debug\middlelayer.pdb

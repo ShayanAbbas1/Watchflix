@@ -1,0 +1,6 @@
+C:\Users\user\source\repos\watchflix\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\user\source\repos\watchflix\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\user\source\repos\watchflix\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\user\source\repos\watchflix\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\watchflix\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\user\source\repos\watchflix\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

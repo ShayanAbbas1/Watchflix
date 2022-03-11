@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="csrf-name" content="csrf5fe505a7e83db">
+	<meta name="csrf-value" content="af94d2aea97c4e06bc8d3c1cbf6bb424">
+	<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"02e09611df",applicationID:"156179534"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+	<meta name="cart-hash" content="d751713988987e9331980363e24189ce">
+	<meta name="twitter:site" content="@VectorStock">
+	<meta property="og:site_name" content="VectorStock">
+	<meta property="fb:app_id" content="241100862642313">
+	
+	<link rel="dns-prefetch" href="https://cdn.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn1.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn2.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn3.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn4.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn5.vectorstock.com">
+	<link rel="shortcut icon" href="https://cdn.vectorstock.com/img/icons/favicon.ico" type="image/x-icon">
+	<link rel="search" type="application/opensearchdescription+xml" title="VectorStock Search" href="https://www.vectorstock.com/xml/searchbox.xml">
+
+	<title>Five stars customer product rating review colorful</title>
+	<meta name="description" content="Five stars customer product rating review colorful flat icons for apps and websites. vector illustration. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions..">
+	
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-colorful-vector-20307676">
+	<meta property="og:title" content="Five stars customer product rating review colorful vector image on VectorStock">
+	<meta property="og:description" content="Five stars customer product rating review colorful flat icons for apps and websites. vector illustration. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+	<meta property="og:image" content="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg">
+	<meta property="og:image:url" content="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg">
+	<meta property="og:image:secure_url" content="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="1000">
+	<meta property="og:image:height" content="700">
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="https://www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-colorful-vector-20307676">
+	<meta name="twitter:title" content="Five stars customer product rating review colorful vector image">
+	<meta name="twitter:description" content="Five stars customer product rating review colorful flat icons for apps and websites. vector illustration">
+	<meta name="twitter:image" content="https://cdn2.vectorstock.com/i/thumb-large/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg">
+	<meta name="twitter:image:width" content="238">
+	<meta name="twitter:image:height" content="250">
+
+	<link rel="canonical" href="https://www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-colorful-vector-20307676">
+
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/common1608259776.min.css">
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/vector1608259776.min.css">
+	<script src="//cdn.vectorstock.com/cache/common1608259323.min.js"></script>
+	<script src="//cdn.vectorstock.com/cache/vector1608259323.min.js"></script>
+<!-- Analytics --><script type="text/javascript">// Load GA script
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// Setup
+ga('create', 'UA-2180430-2', 'none');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+
+<!-- Top header -->
+<header>
+	<nav class="top">
+		<figure>
+			<a href="/" title="VectorStock&reg;">VectorStock&reg;</a>
+		</figure>
+
+		<div class="grid">
+			<form id="searchbox" class="focused empty">
+				<div class="wrap">
+					<fieldset>
+						<div class="contents">
+							<div class="tags">
+								<ul></ul>
+							</div>
+							<div class="input">
+								<input type="text" name="input" autocomplete="off" autocapitalize="none" spellcheck="true" value="" placeholder="Search…" maxlength="50" autofocus>
+								<button type="button" data-action="clear">×</button>
+							</div>
+
+							<input type="hidden" name="category" value="">
+							<input type="hidden" name="custom_srp" value="">
+							<input type="hidden" name="artist" value="">
+							<input type="hidden" name="similar" value="">
+						</div>
+					</fieldset>
+
+					<button type="submit">
+						<span class="icon">Search</span>
+					</button>
+				</div>
+			</form>
+			<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+		</div>
+
+		<div class="aside">
+			<ul>
+				<li><a href="/popular-categories" title="Popular Categories">Categories</a></li>
+				<li><a href="/pricing" title="Pricing">Pricing</a></li>
+				<li class="account">
+					<button type="button" data-action="signup">Sign Up</button>
+					<button type="button" data-action="login">Login</button>
+				</li>
+			</ul>
+		</div>
+
+		<div id="mobilenav-icon">
+			<span></span><span></span><span></span><span></span>
+		</div>
+	</nav>
+
+	<!-- Submenu -->
+		<nav id="searchrelated"></nav>	
+
+		<!-- Mobile menu -->
+	<div id="mobilenav-menu">
+		<div>
+			<div class="group">
+				<h4>Browse</h4>
+				<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+			</div>
+			<div class="group">
+				<h4>Account</h4>
+				<ul>
+					<li class="account">
+							<ul>
+								<li><a href="/signup">Sign Up</a></li>
+								<li data-action="login"><a href="/?login=1">Login…</a></li>
+								<li><a href="/pricing">Pricing</a></li>
+							</ul>
+						</li>
+				</ul>
+				<form method="get" action="/auth/logout" class="logout">
+					<input type="hidden" name="logout" value="1">
+				</form>
+			</div>
+			<div class="group">
+				<h4>Help</h4>
+				<ul>
+					<li><a href="/faq"><abbr title="Frequently Asked Questions">FAQs</abbr></a></li>
+					<li><a href="/contact">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+		<!-- Account Menu Tabs -->
+		<aside id="nav_sidebar" class="tabs tabsDark">
+
+			<nav>
+				<ul role="tablist">
+					<li data-tab-id="signup" class=""><span role="tab"><span>Sign Up</span></span></li>
+					<li data-tab-id="login" class="selected"><span role="tab"><span>Log In</span></span></li>
+				</ul>
+			</nav>
+
+			<section id="sb_signup" data-tab-id="signup" class="">
+				<div class="primary">
+					<p>New to VectorStock?</p>
+					<p><em>We're the largest royalty-free, vector-only stock agency in the world.</em></p>
+					<p>Every week we add new premium graphics by the thousands.</p>
+				</div>
+				<div class="secondary">
+					<p>Whether you're a global ad&nbsp;agency or a freelance graphic designer, we have the vector graphics to make your project come to life.</p>
+					<p>Buy Vectors, sell Vectors or both. <a href="/signup">Sign up now, it’s free.</a></p>
+				</div>
+				<div class="footer">
+					<button class="master">
+						<span class="title">Sign Up...</span>
+						<span class="value">
+							<span class="symbol signup"></span>
+						</span>
+					</button>
+				</div>
+			</section>
+
+			<section id="sb_login" data-tab-id="login" class="selected">
+				<form action="/auth/login" method="post">
+
+
+					<fieldset class="">
+						<label for="vs_username">Email / Username</label>
+						<div class="textfield">
+							<input type="text" id="vs_username" name="vs_username" value="" autocomplete="on" tabindex="1">
+						</div>
+					</fieldset>
+					<fieldset class="">
+						<label for="vs_password">Password</label>
+						<button type="button" class="forgot">Forgot Password</button>
+						<div class="textfield">
+							<input type="password" id="vs_password" name="vs_password" value="" autocomplete="on" tabindex="2"  maxlength="72">
+						</div>
+					</fieldset>
+					<fieldset>
+						<div class="checkbox checked">
+							<label class="selected" for="vs_remember">
+								<span class="title">Stay Logged In</span>
+								<span class="icon"></span>
+								<input type="checkbox" id="vs_remember" name="vs_remember" value="yes" tabindex="3" checked>
+							</label>
+						</div>
+					</fieldset>
+
+
+					<button type="submit" tabindex="4">Log In</button>
+				</form>
+				<div class="alternatives">
+					<h6>Or Login With</h6>
+					<ul>
+						<li class="gp"><a href="/">
+							<span class="title">Google</span>
+							<span class="icon"></span>
+						</a></li>
+						<li class="fb"><a href="/">
+							<span class="title">Facebook</span>
+							<span class="icon"></span>
+						</a></li>
+					</ul>
+				</div>
+
+				
+			</section>
+		</aside>
+
+	<!-- Page -->
+	<article>
+		<section id="vs-asset">
+
+			<!-- Aside -->
+			<div class="aside">
+				<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemtype="http://schema.org/Thing" itemprop="item" href="/royalty-free-vectors">
+							<span itemprop="name">Royalty Free Vectors</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemtype="http://schema.org/Thing" itemprop="item" href="/royalty-free-vectors/five-vectors">
+							<span itemprop="name">Five Vectors</span>
+						</a>
+						<meta itemprop="position" content="2" />
+					</li>
+				</ol>
+
+				<h1>
+					Five stars customer product rating review colorful vector&nbsp;image																			</h1>
+
+				<figure style="padding-top: 70.588235294118%;" class="target">
+					<div class="highres" data-src="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg">
+						<noscript><img src="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg" title="Five stars customer product rating review colorful vector image" alt="Five stars customer product rating review colorful"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn2.vectorstock.com/i/thumbs/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg" title="Five stars customer product rating review colorful vector image" alt="Five stars customer product rating review colorful">
+					</div>
+					<div class="overlay"></div>
+				</figure>
+
+				<form data-loggedin="0" data-licenses="2" data-license="standard" data-status="" data-payment="single-image">
+					<input type="hidden" id="vector_id" value="20307676">
+					<input type="hidden" id="vector_title" value="Five stars customer product rating review colorful">
+					<input type="hidden" id="vector_description" value="Five stars customer product rating review colorful flat icons for apps and websites. vector illustration. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+					<input type="hidden" id="vector_url" value="https://www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-colorful-vector-20307676">
+					<input type="hidden" id="vector_media" value="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg">
+					<input type="hidden" id="vector_ratio" value="0.70588235294118">
+					<input type="hidden" id="vector_license_status" value="">
+					<input type="hidden" id="artist_name" value="LipMic">
+					<input type="hidden" id="account_user" value="0">
+
+					<div class="options">
+						<!--
+						-- OPTION: License type
+						-->
+						<div class="option" data-type="license" data-license="standard" data-licenses="2">
+							<h6><span class="type">License</span><a href="/faq/members/standard-license">Learn More</a></h6>
+							<div class="optgroup radgroup">
+								<fieldset>
+									<label for="f_license_standard" class="checked">
+										<input type="radio" id="f_license_standard" name="license" value="standard" checked="checked" tabindex="2">
+										<span class="label">Standard</span>
+										<span class="descr">For Print, Advertising, Design</span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_license_expanded">
+										<input type="radio" id="f_license_expanded" name="license" value="expanded" tabindex="4">
+										<span class="label">Expanded</span>
+										<span class="descr">For Resale &amp; Reproduction</span>
+									</label>
+								</fieldset>
+							</div>
+
+							<div class="help">
+								<p>The license type determines how you can use this image.</p>
+								<table>
+									<thead>
+										<tr>
+											<th></th>
+																						<th data-license="standard">Std.</th>																						<th data-license="expanded">Exp.</th>										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td>Print / Editorial</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Graphic Design</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Web Design</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Social Media</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Edit &amp; Modify</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Multi-user</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Resale Items</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Unlimited Runs</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						
+						<!--
+						-- OPTION: Payment options (Standard)
+						-->
+						<div class="option" data-type="payment" data-license="standard">
+							<h6><span class="type">Ways to Buy</span><a href="/pricing">Compare</a></h6>
+							<div class="optgroup radgroup" data-license="standard">
+								<fieldset>
+									<label for="f_payment_standard_single-image" class="checked" >
+										<input type="radio" id="f_payment_standard_single-image" name="payment_standard" data-cost="14.99" value="single-image"  checked="checked" tabindex="5">
+										<span class="label">Pay-per-Image</span>
+										<span class="value"><small>$</small><var>14.99</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_standard_credits">
+										<input type="radio" id="f_payment_standard_credits" name="payment_standard" data-cost="1" value="credits" tabindex="6">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>1.00</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_standard_subscription">
+										<input type="radio" id="f_payment_standard_subscription" name="payment_standard" data-cost="1" value="subscription" tabindex="7">
+										<span class="label">Subscription</span>
+										<span class="value"><small>$</small><var>0.69</var></span>
+									</label>
+								</fieldset>
+							</div>
+							<div class="help">
+								<p>There are three ways to pay for Standard licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Image Price</th>
+										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pay-per-Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>14.99</span>
+												</span>
+												<span class="byline">One-time payment</span>
+											</td>
+										</tr>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pre-paid Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>1</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1). Minimum purchase of 30.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Subscription Plan</span>
+													<span class="dm"></span>
+													<span class="dd"><em>From</em> 69c</span>
+												</span>
+												<span class="byline">Choose a monthly plan. Unused downloads automatically roll into following month.</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--
+						-- OPTION: Payment options (Expanded)
+						-->
+						<div class="option" data-type="payment" data-license="expanded">
+							<h6><span class="type">Ways to Buy</span><a href="/faq/members/ways-to-buy">Compare</a></h6>
+							<div class="optgroup radgroup" data-license="expanded">
+								<fieldset>
+									<label for="f_payment_expanded_single-image" class="checked">
+										<input type="radio" id="f_payment_expanded_single-image" name="payment_expanded" data-cost="29.99" value="single-image" checked="checked" tabindex="8">
+										<span class="label">Pay-per-Image</span>
+										<span class="value"><small>$</small><var>29.99</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_expanded_credits">
+										<input type="radio" id="f_payment_expanded_credits" name="payment_expanded" data-cost="30" value="credits" tabindex="9">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>30.00</var></span>
+									</label>
+								</fieldset>
+							</div>
+														<div class="help">
+								<p>There are two ways to pay for Expanded licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Cost per Image</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pay-per-Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>29.99</span>
+												</span>
+												<span class="byline">One-off payment, no signup needed.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pre-paid Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>30</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1).</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+													</div>
+						<!--
+						-- OPTION: Customization
+						-->
+						<div class="option" data-type="customization">
+							<h6><span class="type">New Option!</span><a href="/faq/members/what-is-hire-a-designer">What is this?</a></h6>
+							<div class="optgroup chkgroup">
+								<fieldset>
+									<label for="f_payment_customization">
+										<input type="checkbox" id="f_payment_customization" name="payment_customization" data-cost="85" value="customization" tabindex="12">
+										<span class="label">Customize image</span>
+										<span class="descr">Only available with Pay-per-Image</span>
+										<span class="value"><small>$</small><var>85.00</var></span>
+									</label>
+								</fieldset>
+							</div>
+							<div class="help">
+								<p>Love the image but just need a few modifications? Let our talented artists do the work for you!</p>
+								<p>We&rsquo;ll connect you with a designer who can make updates and send you the artwork in a format of your choice.</p>
+								<h4>Examples</h4>
+								<ul>
+									<li>Change the text</li>
+									<li>Modify colors</li>
+									<li>Resize to new dimensions</li>
+									<li>Include logo or symbol</li>
+									<li>Add your company or business name</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="download">
+						<button type="button" data-action="download">
+							<span class="label">Download Image</span>
+							<span class="icon"></span>
+						</button>
+						<h6><span class="label">Files Included</span></h6>
+						<div class="help">
+							<span class="loading"><span class="label">Loading Details...</span></span>
+						</div>
+					</div>
+					<div class="download_options">
+						<div class="wrap">
+							<div class="optgroup" data-action="download">
+								<span class="header">Download File/s:</span>
+								<div class="dropdown" data-value="zip">
+									<div class="display">
+										<span class="label"><strong>ZIP Archive</strong></span>
+										<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M10.6,12.8 15,17.2 19.4,12.8"/></svg></span>
+									</div>
+									<div class="select">
+										<select>
+											<optgroup label="All Files">
+												<option value="zip" data-label="ZIP Archive" data-details="" data-url="" selected="selected">ZIP Archive</option>											</optgroup>
+											<optgroup label="Image">
+												<option value="jpg" data-label="High-res JPG" data-details="300 DPI+" data-url="">High-res JPG (300 DPI+)</option>												<option value="png" data-label="High-res PNG" data-details="300 DPI+" data-url="">High-res PNG (300 DPI+)</option>											</optgroup>
+											<optgroup label="Vector">
+												<option value="ai" data-label="Adobe Illustrator" data-details="v10+" data-url="">Adobe Illustrator (v10+)</option>												<option value="eps" data-label="Vector EPS" data-details="v8+" data-url="">Vector EPS (v8+)</option>												<option value="pdf" data-label="Vector PDF" data-details="" data-url="">Vector PDF</option>											</optgroup>
+										</select>
+									</div>
+								</div>
+								<button type="button" data-action="download_file">
+									<span class="label">Download ZIP</span>
+									<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M23.6,21.2 23.6,9.5 16.4,9.5 16.4,21.3 10.8,21.3 11,21.5 20,30.5 29.2,21.3"/></svg></span>
+								</button>
+							</div>
+							<div class="optgroup" data-action="customization" data-status="uninitiated">
+								<span class="header">Image Customization:</span>
+								<ul class="actions">
+									<li>
+										<button type="button" data-job-url="/customizations">
+											<span class="label">View your job...</span>
+											<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M12.8,19.4 17.2,15 12.8,10.6"/></svg></span>
+										</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<!-- Image -->
+			<div class="image">
+				<figure data-orientation="landscape" style="padding-top: 70.588235294118%;" class="target">
+					<div class="highres" data-src="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg">
+						<noscript><img src="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg" title="Five stars customer product rating review colorful vector image" alt="Five stars customer product rating review colorful"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn2.vectorstock.com/i/thumbs/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg" title="Five stars customer product rating review colorful vector image" alt="Five stars customer product rating review colorful">
+					</div>
+					<div class="overlay"></div>
+					<div class="panels">
+						<div class="share">
+							<h4>Share with others</h4>
+							<ul>
+								<li class="pinterest"><button type="button" data-action="pinterest"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M12.5,0C5.6,0,0,5.6,0,12.5c0,5.12,3.08,9.52,7.48,11.45c-0.03-0.87-0.01-1.92,0.22-2.87c0.24-1.01,1.61-6.81,1.61-6.81s-0.4-0.8-0.4-1.98c0-1.85,1.07-3.24,2.41-3.24c1.14,0,1.69,0.85,1.69,1.88c0,1.14-0.73,2.85-1.1,4.44c-0.31,1.33,0.67,2.41,1.97,2.41c2.37,0,3.96-3.04,3.96-6.65c0-2.74-1.85-4.79-5.2-4.79c-3.79,0-6.15,2.83-6.15,5.99c0,1.09,0.32,1.86,0.82,2.45c0.23,0.27,0.26,0.38,0.18,0.7c-0.06,0.23-0.2,0.78-0.25,1c-0.08,0.32-0.34,0.43-0.63,0.31c-1.75-0.71-2.56-2.62-2.56-4.77c0-3.55,3-7.81,8.93-7.81c4.77,0,7.91,3.45,7.91,7.16c0,4.9-2.73,8.57-6.75,8.57c-1.35,0-2.62-0.73-3.05-1.56c0,0-0.73,2.88-0.88,3.44c-0.27,0.96-0.78,1.93-1.26,2.68C10.08,24.82,11.27,25,12.5,25C19.4,25,25,19.4,25,12.5S19.4,0,12.5,0L12.5,0z"/></svg></span><span class="label">Pinterest</span></span></button></li>
+								<li class="facebook"><button type="button" data-action="facebook"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M22.44,1H2.56C1.7,1,1,1.7,1,2.56v19.88C1,23.3,1.7,24,2.56,24h10.41v-8.89H9.98v-3.46h2.99V9.1c0-2.96,1.81-4.58,4.45-4.58c1.27,0,2.35,0.09,2.67,0.14v3.1l-1.83,0c-1.44,0-1.72,0.68-1.72,1.69v2.21h3.43l-0.45,3.46h-2.98V24h5.89C23.3,24,24,23.3,24,22.44V2.56C24,1.7,23.3,1,22.44,1z"/></svg></span><span class="label">Facebook</span></span></button></li>
+								<li class="twitter"><button type="button" data-action="twitter"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M7.86,22.5c9.43,0,14.59-7.69,14.59-14.37c0-0.22,0-0.44-0.01-0.65c1-0.71,1.87-1.6,2.56-2.61c-0.92,0.4-1.91,0.67-2.95,0.79c1.06-0.62,1.87-1.61,2.26-2.79c-0.99,0.58-2.09,1-3.26,1.23c-0.94-0.98-2.27-1.6-3.74-1.6c-2.83,0-5.13,2.26-5.13,5.05c0,0.4,0.05,0.78,0.13,1.15C8.05,8.49,4.27,6.48,1.74,3.42C1.3,4.17,1.05,5.04,1.05,5.96c0,1.75,0.91,3.3,2.28,4.2C2.49,10.14,1.7,9.91,1,9.53C1,9.55,1,9.58,1,9.6c0,2.45,1.77,4.49,4.11,4.95c-0.43,0.12-0.88,0.18-1.35,0.18c-0.33,0-0.65-0.03-0.96-0.09c0.65,2.01,2.55,3.47,4.79,3.51C5.84,19.5,3.63,20.3,1.22,20.3c-0.41,0-0.82-0.02-1.22-0.07C2.27,21.66,4.97,22.5,7.86,22.5"/></svg></span><span class="label">Twitter</span></span></button></li>
+								<li class="email"><button type="button" data-action="email"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M22.48,4.17H2.52C1.13,4.17,0,5.3,0,6.69v11.62c0,1.39,1.13,2.52,2.52,2.52h19.96c1.39,0,2.52-1.13,2.52-2.52V6.69C25,5.3,23.87,4.17,22.48,4.17z M23.49,18.31c0,0.56-0.45,1.01-1.01,1.01H2.52c-0.55,0-1.01-0.45-1.01-1.01V6.69c0-0.56,0.45-1.01,1.01-1.01h19.96c0.56,0,1.01,0.45,1.01,1.01V18.31z"/><path d="M19.95,7.95l-7.45,4.83L5.05,7.95C4.7,7.72,4.24,7.82,4.01,8.17C3.78,8.52,3.88,8.99,4.23,9.22l7.86,5.1c0.13,0.08,0.27,0.12,0.41,0.12s0.29-0.04,0.41-0.12l7.86-5.1c0.35-0.23,0.45-0.7,0.22-1.05C20.77,7.82,20.3,7.72,19.95,7.95z"/></svg></span><span class="label">Email</span></span></button></li>
+							</ul>
+						</div>
+						<div class="composite">
+							<button type="button" data-action="download"><span><span class="label">Download JPG Preview Image</span></span></button>
+						</div>
+					</div>
+				</figure>
+				<div class="details">
+					<div class="meta">
+						<ul>
+							<li class="meta-id">
+								<dl><dt>Image ID</dt><dd>20307676</dd></dl>
+							</li>
+							<li class="meta-artist">
+								<dl>
+									<dt>Artist</dt>
+									<dd><a href="/royalty-free-vectors/vectors-by_LipMic" rel="nofollow">LipMic</a><button type="button" data-action="follow" title="Follow Artists that you like to create a newsfeed of their recent images."><span class="label">Follow</span></button></dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+					<div class="options" data-total="2">
+						<ul>
+							<li class="opt-like">
+								<button type="button" data-action="like" data-count="0"><span class="icon">&hearts;</span><span class="label">Like</span><span class="tally"></span></button>
+							</li>
+							<li class="opt-cart">
+								<button type="button" data-action="cart"><span class="icon">+</span><span class="label">Cart</span></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Metadata -->
+			<div class="metadata">
+				<div itemtype="http://schema.org/ImageObject" itemscope>
+					<img src="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg" itemprop="contentUrl" alt="Five stars customer product rating review colorful vector">
+					<meta itemprop="url" content="https://cdn2.vectorstock.com/i/1000x1000/76/76/five-stars-customer-product-rating-review-colorful-vector-20307676.jpg">
+					<meta itemprop="name" content="Five stars customer product rating review colorful">
+					<meta itemprop="description" content="Five stars customer product rating review colorful flat icons for apps and websites. vector illustration. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions. vector image">
+					<meta itemprop="datePublished" content="2018-03-07">
+					<meta itemprop="fileFormat" content="image/jpeg">
+					<meta itemprop="acquireLicensePage" content="https://www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-colorful-vector-20307676">
+					<meta itemprop="license" content="https://www.vectorstock.com/faq/members/standard-license">
+					<meta itemprop="sourceOrganization" content="VectorStock.com">
+				</div>
+			</div>
+			
+		</section>
+
+
+		<section id="vs-related">
+			<div id="group-similar" class="group">
+				<h6><span class="icon"></span><strong>Similar Images</strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/56/94/feedback-customer-satisfaction-and-review-concept-vector-31705694.jpg"><a href="//www.vectorstock.com/royalty-free-vector/feedback-customer-satisfaction-and-review-concept-vector-31705694" title="feedback customer satisfaction and review concept vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/56/94/feedback-customer-satisfaction-and-review-concept-vector-31705694.jpg" title="feedback customer satisfaction and review concept" alt="feedback customer satisfaction and review concept vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/97/19/feedback-rating-concept-with-five-stars-vector-22459719.jpg"><a href="//www.vectorstock.com/royalty-free-vector/feedback-rating-concept-with-five-stars-vector-22459719" title="feedback rating concept with five stars vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/97/19/feedback-rating-concept-with-five-stars-vector-22459719.jpg" title="feedback rating concept with five stars" alt="feedback rating concept with five stars vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/68/75/best-star-hand-cover-vector-22386875.jpg"><a href="//www.vectorstock.com/royalty-free-vector/best-star-hand-cover-vector-22386875" title="best star hand cover vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/68/75/best-star-hand-cover-vector-22386875.jpg" title="best star hand cover" alt="best star hand cover vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/00/78/businessman-holding-a-star-for-giving-five-star-vector-13740078.jpg"><a href="//www.vectorstock.com/royalty-free-vector/businessman-holding-a-star-for-giving-five-star-vector-13740078" title="businessman holding a star for giving five star vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/00/78/businessman-holding-a-star-for-giving-five-star-vector-13740078.jpg" title="businessman holding a star for giving five star" alt="businessman holding a star for giving five star vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/89/48/isometric-customer-review-or-feedback-concept-vector-34258948.jpg"><a href="//www.vectorstock.com/royalty-free-vector/isometric-customer-review-or-feedback-concept-vector-34258948" title="isometric customer review or feedback concept vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/89/48/isometric-customer-review-or-feedback-concept-vector-34258948.jpg" title="isometric customer review or feedback concept" alt="isometric customer review or feedback concept vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/77/06/five-star-rating-flat-man-holding-5-stars-rating-vector-32507706.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-star-rating-flat-man-holding-5-stars-rating-vector-32507706" title="five star rating flat man holding 5 stars rating vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/77/06/five-star-rating-flat-man-holding-5-stars-rating-vector-32507706.jpg" title="five star rating flat man holding 5 stars rating" alt="five star rating flat man holding 5 stars rating vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/74/71/3d-isometric-flat-conceptual-vector-33107471.jpg"><a href="//www.vectorstock.com/royalty-free-vector/3d-isometric-flat-conceptual-vector-33107471" title="3d isometric flat conceptual vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/74/71/3d-isometric-flat-conceptual-vector-33107471.jpg" title="3d isometric flat conceptual" alt="3d isometric flat conceptual vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/21/17/5-star-rating-icon-set-customer-review-survey-vector-33022117.jpg"><a href="//www.vectorstock.com/royalty-free-vector/5-star-rating-icon-set-customer-review-survey-vector-33022117" title="5 star rating icon set customer review survey vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/21/17/5-star-rating-icon-set-customer-review-survey-vector-33022117.jpg" title="5 star rating icon set customer review survey" alt="5 star rating icon set customer review survey vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/84/95/five-stars-rating-poster-with-headline-vector-21278495.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-rating-poster-with-headline-vector-21278495" title="five stars rating poster with headline vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/84/95/five-stars-rating-poster-with-headline-vector-21278495.jpg" title="five stars rating poster with headline" alt="five stars rating poster with headline vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/25/73/five-golden-stars-top-quality-concept-rating-vector-32852573.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-golden-stars-top-quality-concept-rating-vector-32852573" title="five golden stars top quality concept rating vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/25/73/five-golden-stars-top-quality-concept-rating-vector-32852573.jpg" title="five golden stars top quality concept rating" alt="five golden stars top quality concept rating vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/97/25/rating-app-bubble-speeches-and-avatars-vector-20959725.jpg"><a href="//www.vectorstock.com/royalty-free-vector/rating-app-bubble-speeches-and-avatars-vector-20959725" title="rating app bubble speeches and avatars vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/97/25/rating-app-bubble-speeches-and-avatars-vector-20959725.jpg" title="rating app bubble speeches and avatars" alt="rating app bubble speeches and avatars vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/59/50/five-stars-customer-product-rating-review-flat-vector-26675950.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-flat-vector-26675950" title="five stars customer product rating review flat vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/59/50/five-stars-customer-product-rating-review-flat-vector-26675950.jpg" title="five stars customer product rating review flat" alt="five stars customer product rating review flat vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/56/40/rating-concept-survey-results-feedback-vector-28045640.jpg"><a href="//www.vectorstock.com/royalty-free-vector/rating-concept-survey-results-feedback-vector-28045640" title="rating concept survey results feedback vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/56/40/rating-concept-survey-results-feedback-vector-28045640.jpg" title="rating concept survey results feedback" alt="rating concept survey results feedback vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/23/70/five-stars-customer-product-rating-review-icon-vector-22502370.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-icon-vector-22502370" title="five stars customer product rating review icon vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/23/70/five-stars-customer-product-rating-review-icon-vector-22502370.jpg" title="five stars customer product rating review icon" alt="five stars customer product rating review icon vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/62/87/five-stars-feedback-vector-23576287.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-feedback-vector-23576287" title="five stars feedback vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/62/87/five-stars-feedback-vector-23576287.jpg" title="five stars feedback" alt="five stars feedback vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/25/02/clients-choosing-satisfaction-rating-and-leaving-vector-30542502.jpg"><a href="//www.vectorstock.com/royalty-free-vector/clients-choosing-satisfaction-rating-and-leaving-vector-30542502" title="clients choosing satisfaction rating and leaving vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/25/02/clients-choosing-satisfaction-rating-and-leaving-vector-30542502.jpg" title="clients choosing satisfaction rating and leaving" alt="clients choosing satisfaction rating and leaving vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/72/08/five-star-rating-vector-25957208.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-star-rating-vector-25957208" title="five star rating vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/72/08/five-star-rating-vector-25957208.jpg" title="five star rating" alt="five star rating vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/08/78/set-customer-feedback-5-star-rating-vector-24570878.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-customer-feedback-5-star-rating-vector-24570878" title="set customer feedback 5 star rating vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/08/78/set-customer-feedback-5-star-rating-vector-24570878.jpg" title="set customer feedback 5 star rating" alt="set customer feedback 5 star rating vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/76/12/five-5-stars-quality-rating-set-icons-booking-vector-23557612.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-5-stars-quality-rating-set-icons-booking-vector-23557612" title="five 5 stars quality rating set icons booking vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/76/12/five-5-stars-quality-rating-set-icons-booking-vector-23557612.jpg" title="five 5 stars quality rating set icons booking" alt="five 5 stars quality rating set icons booking vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/48/81/five-yellow-rating-star-in-vector-27084881.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-yellow-rating-star-in-vector-27084881" title="five yellow rating star in vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/48/81/five-yellow-rating-star-in-vector-27084881.jpg" title="five yellow rating star in" alt="five yellow rating star in vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="25188327" data-title="five stars rating flat style" data-src="https://cdn3.vectorstock.com/i/thumbs/83/27/five-stars-rating-flat-style-vector-25188327.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-rating-flat-style-vector-25188327" title="five stars rating flat style vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/83/27/five-stars-rating-flat-style-vector-25188327.jpg" title="five stars rating flat style" alt="five stars rating flat style vector image"></noscript></a></li>
+						<li data-id="28489489" data-title="5 star review yellow icon five stars gold" data-src="https://cdn5.vectorstock.com/i/thumbs/94/89/5-star-review-yellow-icon-five-stars-gold-vector-28489489.jpg"><a href="//www.vectorstock.com/royalty-free-vector/5-star-review-yellow-icon-five-stars-gold-vector-28489489" title="5 star review yellow icon five stars gold vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/94/89/5-star-review-yellow-icon-five-stars-gold-vector-28489489.jpg" title="5 star review yellow icon five stars gold" alt="5 star review yellow icon five stars gold vector image"></noscript></a></li>
+						<li data-id="33821033" data-title="woman giving rating hand choosing positive review" data-src="https://cdn4.vectorstock.com/i/thumbs/10/33/woman-giving-rating-hand-choosing-positive-review-vector-33821033.jpg"><a href="//www.vectorstock.com/royalty-free-vector/woman-giving-rating-hand-choosing-positive-review-vector-33821033" title="woman giving rating hand choosing positive review vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/10/33/woman-giving-rating-hand-choosing-positive-review-vector-33821033.jpg" title="woman giving rating hand choosing positive review" alt="woman giving rating hand choosing positive review vector image"></noscript></a></li>
+						<li data-id="24143852" data-title="five star rating" data-src="https://cdn3.vectorstock.com/i/thumbs/38/52/five-star-rating-vector-24143852.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-star-rating-vector-24143852" title="five star rating vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/38/52/five-star-rating-vector-24143852.jpg" title="five star rating" alt="five star rating vector image"></noscript></a></li>
+						<li data-id="20130887" data-title="isometric businessman hand giving five star rating" data-src="https://cdn3.vectorstock.com/i/thumbs/08/87/isometric-businessman-hand-giving-five-star-rating-vector-20130887.jpg"><a href="//www.vectorstock.com/royalty-free-vector/isometric-businessman-hand-giving-five-star-rating-vector-20130887" title="isometric businessman hand giving five star rating vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/08/87/isometric-businessman-hand-giving-five-star-rating-vector-20130887.jpg" title="isometric businessman hand giving five star rating" alt="isometric businessman hand giving five star rating vector image"></noscript></a></li>
+						<li data-id="30029545" data-title="customer feedback five stars rating user" data-src="https://cdn1.vectorstock.com/i/thumbs/95/45/customer-feedback-five-stars-rating-user-vector-30029545.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-feedback-five-stars-rating-user-vector-30029545" title="customer feedback five stars rating user vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/95/45/customer-feedback-five-stars-rating-user-vector-30029545.jpg" title="customer feedback five stars rating user" alt="customer feedback five stars rating user vector image"></noscript></a></li>
+						<li data-id="27644816" data-title="feedback 5 golden stars loss reputation online" data-src="https://cdn2.vectorstock.com/i/thumbs/48/16/feedback-5-golden-stars-loss-reputation-online-vector-27644816.jpg"><a href="//www.vectorstock.com/royalty-free-vector/feedback-5-golden-stars-loss-reputation-online-vector-27644816" title="feedback 5 golden stars loss reputation online vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/48/16/feedback-5-golden-stars-loss-reputation-online-vector-27644816.jpg" title="feedback 5 golden stars loss reputation online" alt="feedback 5 golden stars loss reputation online vector image"></noscript></a></li>
+						<li data-id="28147560" data-title="rating stars set for product or customer review" data-src="https://cdn1.vectorstock.com/i/thumbs/75/60/rating-stars-set-for-product-or-customer-review-vector-28147560.jpg"><a href="//www.vectorstock.com/royalty-free-vector/rating-stars-set-for-product-or-customer-review-vector-28147560" title="rating stars set for product or customer review vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/75/60/rating-stars-set-for-product-or-customer-review-vector-28147560.jpg" title="rating stars set for product or customer review" alt="rating stars set for product or customer review vector image"></noscript></a></li>
+						<li data-id="21702629" data-title="banner with big stars for design concept" data-src="https://cdn5.vectorstock.com/i/thumbs/26/29/banner-with-big-stars-for-design-concept-vector-21702629.jpg"><a href="//www.vectorstock.com/royalty-free-vector/banner-with-big-stars-for-design-concept-vector-21702629" title="banner with big stars for design concept vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/26/29/banner-with-big-stars-for-design-concept-vector-21702629.jpg" title="banner with big stars for design concept" alt="banner with big stars for design concept vector image"></noscript></a></li>
+						<li data-id="31078515" data-title="review us user rating concept review and rate us" data-src="https://cdn1.vectorstock.com/i/thumbs/85/15/review-us-user-rating-concept-review-and-rate-us-vector-31078515.jpg"><a href="//www.vectorstock.com/royalty-free-vector/review-us-user-rating-concept-review-and-rate-us-vector-31078515" title="review us user rating concept review and rate us vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/85/15/review-us-user-rating-concept-review-and-rate-us-vector-31078515.jpg" title="review us user rating concept review and rate us" alt="review us user rating concept review and rate us vector image"></noscript></a></li>
+						<li data-id="23237911" data-title="gold stars rating" data-src="https://cdn2.vectorstock.com/i/thumbs/79/11/gold-stars-rating-vector-23237911.jpg"><a href="//www.vectorstock.com/royalty-free-vector/gold-stars-rating-vector-23237911" title="gold stars rating vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/79/11/gold-stars-rating-vector-23237911.jpg" title="gold stars rating" alt="gold stars rating vector image"></noscript></a></li>
+						<li data-id="30242578" data-title="five star survey opinion" data-src="https://cdn4.vectorstock.com/i/thumbs/25/78/five-star-survey-opinion-vector-30242578.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-star-survey-opinion-vector-30242578" title="five star survey opinion vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/25/78/five-star-survey-opinion-vector-30242578.jpg" title="five star survey opinion" alt="five star survey opinion vector image"></noscript></a></li>
+						<li data-id="23645555" data-title="product rating or customer review gold stars" data-src="https://cdn1.vectorstock.com/i/thumbs/55/55/product-rating-or-customer-review-gold-stars-vector-23645555.jpg"><a href="//www.vectorstock.com/royalty-free-vector/product-rating-or-customer-review-gold-stars-vector-23645555" title="product rating or customer review gold stars vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/55/55/product-rating-or-customer-review-gold-stars-vector-23645555.jpg" title="product rating or customer review gold stars" alt="product rating or customer review gold stars vector image"></noscript></a></li>
+						<li data-id="23482400" data-title="rating and review customer reviews rating" data-src="https://cdn1.vectorstock.com/i/thumbs/24/00/rating-and-review-customer-reviews-rating-vector-23482400.jpg"><a href="//www.vectorstock.com/royalty-free-vector/rating-and-review-customer-reviews-rating-vector-23482400" title="rating and review customer reviews rating vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/24/00/rating-and-review-customer-reviews-rating-vector-23482400.jpg" title="rating and review customer reviews rating" alt="rating and review customer reviews rating vector image"></noscript></a></li>
+						<li data-id="22427226" data-title="customer review and feedback five stars rating on" data-src="https://cdn2.vectorstock.com/i/thumbs/72/26/customer-review-and-feedback-five-stars-rating-on-vector-22427226.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-review-and-feedback-five-stars-rating-on-vector-22427226" title="customer review and feedback five stars rating on vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/72/26/customer-review-and-feedback-five-stars-rating-on-vector-22427226.jpg" title="customer review and feedback five stars rating on" alt="customer review and feedback five stars rating on vector image"></noscript></a></li>
+						<li data-id="13244358" data-title="giving five stars raiting flat line icon" data-src="https://cdn4.vectorstock.com/i/thumbs/43/58/giving-five-stars-raiting-flat-line-icon-vector-13244358.jpg"><a href="//www.vectorstock.com/royalty-free-vector/giving-five-stars-raiting-flat-line-icon-vector-13244358" title="giving five stars raiting flat line icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/43/58/giving-five-stars-raiting-flat-line-icon-vector-13244358.jpg" title="giving five stars raiting flat line icon" alt="giving five stars raiting flat line icon vector image"></noscript></a></li>
+						<li data-id="19884365" data-title="5 stars rating or raking conceptrating or raking" data-src="https://cdn1.vectorstock.com/i/thumbs/43/65/5-stars-rating-or-raking-conceptrating-or-raking-vector-19884365.jpg"><a href="//www.vectorstock.com/royalty-free-vector/5-stars-rating-or-raking-conceptrating-or-raking-vector-19884365" title="5 stars rating or raking conceptrating or raking vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/43/65/5-stars-rating-or-raking-conceptrating-or-raking-vector-19884365.jpg" title="5 stars rating or raking conceptrating or raking" alt="5 stars rating or raking conceptrating or raking vector image"></noscript></a></li>
+						<li data-id="22644918" data-title="online rating laptop concept" data-src="https://cdn4.vectorstock.com/i/thumbs/49/18/online-rating-laptop-concept-vector-22644918.jpg"><a href="//www.vectorstock.com/royalty-free-vector/online-rating-laptop-concept-vector-22644918" title="online rating laptop concept vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/49/18/online-rating-laptop-concept-vector-22644918.jpg" title="online rating laptop concept" alt="online rating laptop concept vector image"></noscript></a></li>
+						<li data-id="23458724" data-title="star ratting icons" data-src="https://cdn5.vectorstock.com/i/thumbs/87/24/star-ratting-icons-vector-23458724.jpg"><a href="//www.vectorstock.com/royalty-free-vector/star-ratting-icons-vector-23458724" title="star ratting icons vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/87/24/star-ratting-icons-vector-23458724.jpg" title="star ratting icons" alt="star ratting icons vector image"></noscript></a></li>
+						<li data-id="27121255" data-title="customer loyalty icon simple element" data-src="https://cdn1.vectorstock.com/i/thumbs/12/55/customer-loyalty-icon-simple-element-vector-27121255.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-loyalty-icon-simple-element-vector-27121255" title="customer loyalty icon simple element vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/12/55/customer-loyalty-icon-simple-element-vector-27121255.jpg" title="customer loyalty icon simple element" alt="customer loyalty icon simple element vector image"></noscript></a></li>
+						<li data-id="17719973" data-title="five stars rating round medal" data-src="https://cdn4.vectorstock.com/i/thumbs/99/73/five-stars-rating-round-medal-vector-17719973.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-rating-round-medal-vector-17719973" title="five stars rating round medal vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/99/73/five-stars-rating-round-medal-vector-17719973.jpg" title="five stars rating round medal" alt="five stars rating round medal vector image"></noscript></a></li>
+						<li data-id="27133639" data-title="people hold rating stars customer feedback" data-src="https://cdn5.vectorstock.com/i/thumbs/36/39/people-hold-rating-stars-customer-feedback-vector-27133639.jpg"><a href="//www.vectorstock.com/royalty-free-vector/people-hold-rating-stars-customer-feedback-vector-27133639" title="people hold rating stars customer feedback vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/36/39/people-hold-rating-stars-customer-feedback-vector-27133639.jpg" title="people hold rating stars customer feedback" alt="people hold rating stars customer feedback vector image"></noscript></a></li>
+						<li data-id="23889981" data-title="customer review top rating icon badge" data-src="https://cdn2.vectorstock.com/i/thumbs/99/81/customer-review-top-rating-icon-badge-vector-23889981.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-review-top-rating-icon-badge-vector-23889981" title="customer review top rating icon badge vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/99/81/customer-review-top-rating-icon-badge-vector-23889981.jpg" title="customer review top rating icon badge" alt="customer review top rating icon badge vector image"></noscript></a></li>
+						<li data-id="30260659" data-title="online celebrity concept icon man" data-src="https://cdn5.vectorstock.com/i/thumbs/06/59/online-celebrity-concept-icon-man-vector-30260659.jpg"><a href="//www.vectorstock.com/royalty-free-vector/online-celebrity-concept-icon-man-vector-30260659" title="online celebrity concept icon man vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/06/59/online-celebrity-concept-icon-man-vector-30260659.jpg" title="online celebrity concept icon man" alt="online celebrity concept icon man vector image"></noscript></a></li>
+						<li data-id="32645781" data-title="user experience customer review rating tiny" data-src="https://cdn2.vectorstock.com/i/thumbs/57/81/user-experience-customer-review-rating-tiny-vector-32645781.jpg"><a href="//www.vectorstock.com/royalty-free-vector/user-experience-customer-review-rating-tiny-vector-32645781" title="user experience customer review rating tiny vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/57/81/user-experience-customer-review-rating-tiny-vector-32645781.jpg" title="user experience customer review rating tiny" alt="user experience customer review rating tiny vector image"></noscript></a></li>
+						<li data-id="27930432" data-title="five stars symbol" data-src="https://cdn3.vectorstock.com/i/thumbs/04/32/five-stars-symbol-vector-27930432.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-symbol-vector-27930432" title="five stars symbol vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/04/32/five-stars-symbol-vector-27930432.jpg" title="five stars symbol" alt="five stars symbol vector image"></noscript></a></li>
+						<li data-id="29091364" data-title="feedback or rating concept client make a review" data-src="https://cdn5.vectorstock.com/i/thumbs/13/64/feedback-or-rating-concept-client-make-a-review-vector-29091364.jpg"><a href="//www.vectorstock.com/royalty-free-vector/feedback-or-rating-concept-client-make-a-review-vector-29091364" title="feedback or rating concept client make a review vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/13/64/feedback-or-rating-concept-client-make-a-review-vector-29091364.jpg" title="feedback or rating concept client make a review" alt="feedback or rating concept client make a review vector image"></noscript></a></li>
+						<li data-id="28707558" data-title="feedback survey flat landing page concept" data-src="https://cdn4.vectorstock.com/i/thumbs/75/58/feedback-survey-flat-landing-page-concept-vector-28707558.jpg"><a href="//www.vectorstock.com/royalty-free-vector/feedback-survey-flat-landing-page-concept-vector-28707558" title="feedback survey flat landing page concept vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/75/58/feedback-survey-flat-landing-page-concept-vector-28707558.jpg" title="feedback survey flat landing page concept" alt="feedback survey flat landing page concept vector image"></noscript></a></li>
+						<li data-id="31340805" data-title="best four stars hotel wreath labels" data-src="https://cdn1.vectorstock.com/i/thumbs/08/05/best-four-stars-hotel-wreath-labels-vector-31340805.jpg"><a href="//www.vectorstock.com/royalty-free-vector/best-four-stars-hotel-wreath-labels-vector-31340805" title="best four stars hotel wreath labels vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/08/05/best-four-stars-hotel-wreath-labels-vector-31340805.jpg" title="best four stars hotel wreath labels" alt="best four stars hotel wreath labels vector image"></noscript></a></li>
+						<li data-id="22312567" data-title="customer feedback landing page website" data-src="https://cdn3.vectorstock.com/i/thumbs/25/67/customer-feedback-landing-page-website-vector-22312567.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-feedback-landing-page-website-vector-22312567" title="customer feedback landing page website vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/25/67/customer-feedback-landing-page-website-vector-22312567.jpg" title="customer feedback landing page website" alt="customer feedback landing page website vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/vectors-similar-to_20307676" rel="nofollow"><span class="lrg">More Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-artist" class="group">
+				<h6><span class="icon"></span><strong>More by <a href="/royalty-free-vectors/vectors-by_LipMic" rel="nofollow">LipMic</a></strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/75/97/five-stars-customer-product-rating-review-colorful-vector-20307597.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-colorful-vector-20307597" title="five stars customer product rating review colorful vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/75/97/five-stars-customer-product-rating-review-colorful-vector-20307597.jpg" title="five stars customer product rating review colorful" alt="five stars customer product rating review colorful vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/28/96/five-stars-customer-product-rating-review-flat-vector-20332896.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-flat-vector-20332896" title="five stars customer product rating review flat vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/28/96/five-stars-customer-product-rating-review-flat-vector-20332896.jpg" title="five stars customer product rating review flat" alt="five stars customer product rating review flat vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/74/98/five-stars-customer-product-rating-review-flat-vector-20307498.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-flat-vector-20307498" title="five stars customer product rating review flat vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/74/98/five-stars-customer-product-rating-review-flat-vector-20307498.jpg" title="five stars customer product rating review flat" alt="five stars customer product rating review flat vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/76/09/five-stars-customer-product-rating-review-flat-vector-20307609.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-flat-vector-20307609" title="five stars customer product rating review flat vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/76/09/five-stars-customer-product-rating-review-flat-vector-20307609.jpg" title="five stars customer product rating review flat" alt="five stars customer product rating review flat vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/29/02/five-stars-customer-product-rating-review-flat-vector-20332902.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-flat-vector-20332902" title="five stars customer product rating review flat vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/29/02/five-stars-customer-product-rating-review-flat-vector-20332902.jpg" title="five stars customer product rating review flat" alt="five stars customer product rating review flat vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/76/61/five-stars-customer-product-rating-review-flat-vector-20307661.jpg"><a href="//www.vectorstock.com/royalty-free-vector/five-stars-customer-product-rating-review-flat-vector-20307661" title="five stars customer product rating review flat vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/76/61/five-stars-customer-product-rating-review-flat-vector-20307661.jpg" title="five stars customer product rating review flat" alt="five stars customer product rating review flat vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/74/38/customer-review-concept-rating-golden-stars-vector-20307438.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-review-concept-rating-golden-stars-vector-20307438" title="customer review concept rating golden stars vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/74/38/customer-review-concept-rating-golden-stars-vector-20307438.jpg" title="customer review concept rating golden stars" alt="customer review concept rating golden stars vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/76/31/hand-with-pointing-finger-pointing-to-rating-stars-vector-20307631.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hand-with-pointing-finger-pointing-to-rating-stars-vector-20307631" title="hand with pointing finger pointing to rating stars vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/76/31/hand-with-pointing-finger-pointing-to-rating-stars-vector-20307631.jpg" title="hand with pointing finger pointing to rating stars" alt="hand with pointing finger pointing to rating stars vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/28/83/customer-review-concept-hand-press-rating-vector-20332883.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-review-concept-hand-press-rating-vector-20332883" title="customer review concept hand press rating vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/28/83/customer-review-concept-hand-press-rating-vector-20332883.jpg" title="customer review concept hand press rating" alt="customer review concept hand press rating vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/74/11/customer-review-concept-hand-press-rating-vector-20307411.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-review-concept-hand-press-rating-vector-20307411" title="customer review concept hand press rating vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/74/11/customer-review-concept-hand-press-rating-vector-20307411.jpg" title="customer review concept hand press rating" alt="customer review concept hand press rating vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="20307518" data-title="hand press star button customer review" data-src="https://cdn4.vectorstock.com/i/thumbs/75/18/hand-press-star-button-customer-review-vector-20307518.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hand-press-star-button-customer-review-vector-20307518" title="hand press star button customer review vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/75/18/hand-press-star-button-customer-review-vector-20307518.jpg" title="hand press star button customer review" alt="hand press star button customer review vector image vector image"></noscript></a></li>
+						<li data-id="20332889" data-title="hand press star button customer review" data-src="https://cdn5.vectorstock.com/i/thumbs/28/89/hand-press-star-button-customer-review-vector-20332889.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hand-press-star-button-customer-review-vector-20332889" title="hand press star button customer review vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/28/89/hand-press-star-button-customer-review-vector-20332889.jpg" title="hand press star button customer review" alt="hand press star button customer review vector image vector image"></noscript></a></li>
+						<li data-id="20307425" data-title="hand press star button customer review" data-src="https://cdn1.vectorstock.com/i/thumbs/74/25/hand-press-star-button-customer-review-vector-20307425.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hand-press-star-button-customer-review-vector-20307425" title="hand press star button customer review vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/74/25/hand-press-star-button-customer-review-vector-20307425.jpg" title="hand press star button customer review" alt="hand press star button customer review vector image vector image"></noscript></a></li>
+						<li data-id="20333472" data-title="hand press star button customer review" data-src="https://cdn3.vectorstock.com/i/thumbs/34/72/hand-press-star-button-customer-review-vector-20333472.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hand-press-star-button-customer-review-vector-20333472" title="hand press star button customer review vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/34/72/hand-press-star-button-customer-review-vector-20333472.jpg" title="hand press star button customer review" alt="hand press star button customer review vector image vector image"></noscript></a></li>
+						<li data-id="20307461" data-title="hand press star button customer review" data-src="https://cdn2.vectorstock.com/i/thumbs/74/61/hand-press-star-button-customer-review-vector-20307461.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hand-press-star-button-customer-review-vector-20307461" title="hand press star button customer review vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/74/61/hand-press-star-button-customer-review-vector-20307461.jpg" title="hand press star button customer review" alt="hand press star button customer review vector image vector image"></noscript></a></li>
+						<li data-id="20307584" data-title="customer review concept hand press rating" data-src="https://cdn5.vectorstock.com/i/thumbs/75/84/customer-review-concept-hand-press-rating-vector-20307584.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-review-concept-hand-press-rating-vector-20307584" title="customer review concept hand press rating vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/75/84/customer-review-concept-hand-press-rating-vector-20307584.jpg" title="customer review concept hand press rating" alt="customer review concept hand press rating vector image vector image"></noscript></a></li>
+						<li data-id="20332886" data-title="customer review concept hand press rating" data-src="https://cdn2.vectorstock.com/i/thumbs/28/86/customer-review-concept-hand-press-rating-vector-20332886.jpg"><a href="//www.vectorstock.com/royalty-free-vector/customer-review-concept-hand-press-rating-vector-20332886" title="customer review concept hand press rating vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/28/86/customer-review-concept-hand-press-rating-vector-20332886.jpg" title="customer review concept hand press rating" alt="customer review concept hand press rating vector image vector image"></noscript></a></li>
+						<li data-id="20307487" data-title="we want your feedback concept hand" data-src="https://cdn3.vectorstock.com/i/thumbs/74/87/we-want-your-feedback-concept-hand-vector-20307487.jpg"><a href="//www.vectorstock.com/royalty-free-vector/we-want-your-feedback-concept-hand-vector-20307487" title="we want your feedback concept hand vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/74/87/we-want-your-feedback-concept-hand-vector-20307487.jpg" title="we want your feedback concept hand" alt="we want your feedback concept hand vector image vector image"></noscript></a></li>
+						<li data-id="20307541" data-title="we want your feedback concept hand" data-src="https://cdn2.vectorstock.com/i/thumbs/75/41/we-want-your-feedback-concept-hand-vector-20307541.jpg"><a href="//www.vectorstock.com/royalty-free-vector/we-want-your-feedback-concept-hand-vector-20307541" title="we want your feedback concept hand vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/75/41/we-want-your-feedback-concept-hand-vector-20307541.jpg" title="we want your feedback concept hand" alt="we want your feedback concept hand vector image vector image"></noscript></a></li>
+						<li data-id="20307480" data-title="we want your feedback concept hand" data-src="https://cdn1.vectorstock.com/i/thumbs/74/80/we-want-your-feedback-concept-hand-vector-20307480.jpg"><a href="//www.vectorstock.com/royalty-free-vector/we-want-your-feedback-concept-hand-vector-20307480" title="we want your feedback concept hand vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/74/80/we-want-your-feedback-concept-hand-vector-20307480.jpg" title="we want your feedback concept hand" alt="we want your feedback concept hand vector image vector image"></noscript></a></li>
+						<li data-id="20307504" data-title="we want your feedback concept hand" data-src="https://cdn5.vectorstock.com/i/thumbs/75/04/we-want-your-feedback-concept-hand-vector-20307504.jpg"><a href="//www.vectorstock.com/royalty-free-vector/we-want-your-feedback-concept-hand-vector-20307504" title="we want your feedback concept hand vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/75/04/we-want-your-feedback-concept-hand-vector-20307504.jpg" title="we want your feedback concept hand" alt="we want your feedback concept hand vector image vector image"></noscript></a></li>
+						<li data-id="29733224" data-title="flat animation online review customer giving" data-src="https://cdn5.vectorstock.com/i/thumbs/32/24/flat-animation-online-review-customer-giving-vector-29733224.jpg"><a href="//www.vectorstock.com/royalty-free-vector/flat-animation-online-review-customer-giving-vector-29733224" title="flat animation online review customer giving vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/32/24/flat-animation-online-review-customer-giving-vector-29733224.jpg" title="flat animation online review customer giving" alt="flat animation online review customer giving vector image vector image"></noscript></a></li>
+						<li data-id="1352682" data-title="summer sale tags set with speech" data-src="https://cdn3.vectorstock.com/i/thumbs/26/82/summer-sale-tags-set-with-speech-vector-1352682.jpg"><a href="//www.vectorstock.com/royalty-free-vector/summer-sale-tags-set-with-speech-vector-1352682" title="summer sale tags set with speech vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/26/82/summer-sale-tags-set-with-speech-vector-1352682.jpg" title="summer sale tags set with speech" alt="summer sale tags set with speech vector image vector image"></noscript></a></li>
+						<li data-id="31606870" data-title="celebration independence day america at home" data-src="https://cdn1.vectorstock.com/i/thumbs/68/70/celebration-independence-day-america-at-home-vector-31606870.jpg"><a href="//www.vectorstock.com/royalty-free-vector/celebration-independence-day-america-at-home-vector-31606870" title="celebration independence day america at home vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/68/70/celebration-independence-day-america-at-home-vector-31606870.jpg" title="celebration independence day america at home" alt="celebration independence day america at home vector image vector image"></noscript></a></li>
+						<li data-id="31606875" data-title="celebration independence day america at home" data-src="https://cdn1.vectorstock.com/i/thumbs/68/75/celebration-independence-day-america-at-home-vector-31606875.jpg"><a href="//www.vectorstock.com/royalty-free-vector/celebration-independence-day-america-at-home-vector-31606875" title="celebration independence day america at home vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/68/75/celebration-independence-day-america-at-home-vector-31606875.jpg" title="celebration independence day america at home" alt="celebration independence day america at home vector image vector image"></noscript></a></li>
+						<li data-id="10143885" data-title="hotline support service with headphones concept" data-src="https://cdn1.vectorstock.com/i/thumbs/38/85/hotline-support-service-with-headphones-concept-vector-10143885.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hotline-support-service-with-headphones-concept-vector-10143885" title="hotline support service with headphones concept vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/38/85/hotline-support-service-with-headphones-concept-vector-10143885.jpg" title="hotline support service with headphones concept" alt="hotline support service with headphones concept vector image vector image"></noscript></a></li>
+						<li data-id="31607131" data-title="celebration independence day america 4th of" data-src="https://cdn2.vectorstock.com/i/thumbs/71/31/celebration-independence-day-america-4th-of-vector-31607131.jpg"><a href="//www.vectorstock.com/royalty-free-vector/celebration-independence-day-america-4th-of-vector-31607131" title="celebration independence day america 4th of vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/71/31/celebration-independence-day-america-4th-of-vector-31607131.jpg" title="celebration independence day america 4th of" alt="celebration independence day america 4th of vector image vector image"></noscript></a></li>
+						<li data-id="24844058" data-title="graduation logo design with congratulations" data-src="https://cdn4.vectorstock.com/i/thumbs/40/58/graduation-logo-design-with-congratulations-vector-24844058.jpg"><a href="//www.vectorstock.com/royalty-free-vector/graduation-logo-design-with-congratulations-vector-24844058" title="graduation logo design with congratulations vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/40/58/graduation-logo-design-with-congratulations-vector-24844058.jpg" title="graduation logo design with congratulations" alt="graduation logo design with congratulations vector image vector image"></noscript></a></li>
+						<li data-id="31607015" data-title="celebration independence day america 4th of" data-src="https://cdn1.vectorstock.com/i/thumbs/70/15/celebration-independence-day-america-4th-of-vector-31607015.jpg"><a href="//www.vectorstock.com/royalty-free-vector/celebration-independence-day-america-4th-of-vector-31607015" title="celebration independence day america 4th of vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/70/15/celebration-independence-day-america-4th-of-vector-31607015.jpg" title="celebration independence day america 4th of" alt="celebration independence day america 4th of vector image vector image"></noscript></a></li>
+						<li data-id="30216580" data-title="moses separate sea for passover holiday over night" data-src="https://cdn1.vectorstock.com/i/thumbs/65/80/moses-separate-sea-for-passover-holiday-over-night-vector-30216580.jpg"><a href="//www.vectorstock.com/royalty-free-vector/moses-separate-sea-for-passover-holiday-over-night-vector-30216580" title="moses separate sea for passover holiday over night vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/65/80/moses-separate-sea-for-passover-holiday-over-night-vector-30216580.jpg" title="moses separate sea for passover holiday over night" alt="moses separate sea for passover holiday over night vector image vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/vectors-by_LipMic" rel="nofollow"><span class="lrg">More Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-keywords" class="group">
+				<h6><span class="icon"></span><strong>Related Searches</strong></h6>
+				<ul>
+					<li><a href="/royalty-free-vectors/five-vectors">Five</a></li>
+					<li><a href="/royalty-free-vectors/rating-vectors">Rating</a></li>
+					<li><a href="/royalty-free-vectors/stars-vectors">Stars</a></li>
+					<li><a href="/royalty-free-vectors/icon-vectors">Icon</a></li>
+					<li><a href="/royalty-free-vectors/customer-vectors">Customer</a></li>
+					<li><a href="/royalty-free-vectors/product-vectors">Product</a></li>
+					<li><a href="/royalty-free-vectors/colorful-vectors">Colorful</a></li>
+					<li><a href="/royalty-free-vectors/review-vectors">Review</a></li>
+					<li><a href="/royalty-free-vectors/business-vectors">Business</a></li>
+					<li><a href="/royalty-free-vectors/5-vectors">5</a></li>
+					<li><a href="/royalty-free-vectors/design-vectors">Design</a></li>
+					<li><a href="/royalty-free-vectors/appraisal-vectors">Appraisal</a></li>
+					<li><a href="/royalty-free-vectors/client-vectors">Client</a></li>
+					<li><a href="/royalty-free-vectors/comment-vectors">Comment</a></li>
+					<li><a href="/royalty-free-vectors/best-vectors">Best</a></li>
+					<li><a href="/royalty-free-vectors/concept-vectors">Concept</a></li>
+					<li><a href="/royalty-free-vectors/banner-vectors">Banner</a></li>
+					<li><a href="/royalty-free-vectors/bad-vectors">Bad</a></li>
+					<li><a href="/royalty-free-vectors/flat-vectors">Flat</a></li>
+					<li><a href="/royalty-free-vectors/good-vectors">Good</a></li>
+					<li><a href="/royalty-free-vectors/experience-vectors">Experience</a></li>
+					<li><a href="/royalty-free-vectors/isolated-vectors">Isolated</a></li>
+					<li><a href="/royalty-free-vectors/emotions-vectors">Emotions</a></li>
+					<li><a href="/royalty-free-vectors/emoticon-vectors">Emoticon</a></li>
+					<li><a href="/royalty-free-vectors/minimal-vectors">Minimal</a></li>
+					<li><a href="/royalty-free-vectors/negative-vectors">Negative</a></li>
+					<li><a href="/royalty-free-vectors/feedback-vectors">Feedback</a></li>
+					<li><a href="/royalty-free-vectors/opinion-vectors">Opinion</a></li>
+					<li><a href="/royalty-free-vectors/evaluation-vectors">Evaluation</a></li>
+					<li><a href="/royalty-free-vectors/happy-vectors">Happy</a></li>
+				</ul>
+			</div>
+		</section>
+	</article>
+
+	<!-- Footer -->
+	<footer>
+
+		<div>
+		<div class="column c1">
+			<nav class="company">
+				<h4>VectorStock</h4>
+				<ul>
+					<li><a href="/" title="Home">Home</a></li>
+					<li class="sel"><a href="/free-vectors" title="Free Vectors">Free Vectors</a></li>
+					<li class="sel"><a href="/royalty-free-vectors" title="All Royalty-Free Vectors">All Vectors</a></li>
+				</ul>
+				<ul>
+					<li><a href="/what-is-a-vector" title="What is a Vector?">What is a Vector?</a></li>
+				</ul>
+				<ul>
+					<li class="sel"><a href="/faq" title="Frequently Asked Questions"><span class="long">Frequently Asked Questions</span><span class="short">FAQs</span></a></li>
+					<li><a href="/faq/members/terms-of-use" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+					<li class="sel"><a href="/contact" title="Contact Us">Contact Us</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="column c2">
+			<nav class="account">
+					<h4><span class="title">Account</span><span class="icon"></span></h4>
+					<ul>
+						<li><a href="/signup" title="Join Now">Join Now</a></li>
+						<li><a href="/pricing" title="Pricing">Pricing</a></li>
+						<li><a href="/?signup=1&contributor=1" title="Contributor Sign Up">Contributor Sign Up</a></li>
+						<li><a href="/faq/artists/why-sell-at-vectorstock" title="Contributor FAQ">Contributor FAQ</a></li>
+					</ul>
+			</nav>
+		</div>
+		<div class="column c3">
+			<nav class="social">
+				<h4>Social</h4>
+				<ul>
+					<li class="facebook sel"><a href="https://www.facebook.com/VectorStock" target="_blank" rel="noreferrer"><span class="title">Facebook</span><span class="icon"></span></a></li>
+					<li class="pinterest sel"><a href="https://pinterest.com/vectorstock/" target="_blank" rel="noreferrer"><span class="title">Pinterest</span><span class="icon"></span></a></li>
+					<li class="twitter sel"><a href="https://twitter.com/VectorStock" target="_blank" rel="noreferrer"><span class="title">Twitter</span><span class="icon"></span></a></li>
+				</ul>
+			</nav>
+			<div class="signoff">
+				<h5><a href="https://www.vectorstock.com/" title="VectorStock®">VectorStock®</a></h5>
+				<p>VectorStock and the VectorStock logo are registered trademarks of VectorStock Media.<br>
+				© 2020. <span>All Rights Reserved.</span></p>
+			</div>
+		</div>
+	</div></footer>
+
+
+	<script src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"02e09611df","applicationID":"156179534","transactionName":"ZV0ENRYCC0RYAkVbDVwXJRQXFwpaFhNeSwNeTB9MAhEAUhQXVFEWXUpJFw0GEg==","queueTime":0,"applicationTime":47,"atts":"SRoHQ14YGEo=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script>
+</body>
+</html>
